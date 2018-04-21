@@ -8,10 +8,12 @@ public class BalanceCommand : Command
 
     public override void Execute(params string[] args)
     {
-        if (PlayerStats.instance != null)
-        {
-            Print(string.Format("Your balance is {0}cc", PlayerStats.instance.bankBalance));
-        }
+		if (PlayerStats.instance != null) {
+			Print (string.Format ("Your balance is {0}cc", PlayerStats.instance.bankBalance));
+		} else {
+			//debug
+			Print ("ERROR: PlayerStats instance not found.");
+		}
     }
 
     public override string GetHelpString()

@@ -8,6 +8,13 @@ public class PlayerStats : MonoBehaviour
 
     public int bankBalance { get; private set; }
 
+	//Manual Codes - must use buy to unlock
+	//alphaManual automatically one, no checks done. 
+	public bool alphaManual { get; private set; }
+	public bool betaManual { get; private set; }
+	public bool charlieManual { get; private set; }
+	public bool deltaManual { get; private set; }
+
     private void Awake()
     {
         if (instance == null)
@@ -20,8 +27,13 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    void AddBalance(int amount)
+    public void AddBalance(int amount)
     {
         bankBalance += amount;
     }
+
+	public void RemoveBalance(int amount)
+	{
+		bankBalance -= amount;
+	}
 }

@@ -17,6 +17,10 @@ public class CommandInterpreter : MonoBehaviour
             instance = this;
             commands.Add("help", new HelpCommand(this));
             commands.Add("balance", new BalanceCommand(this));
+			commands.Add("shop", new ShopCommand(this));
+			commands.Add("exit", new ExitCommand(this));
+			commands.Add("man", new ManualCommand(this));
+			commands.Add("buy", new BuyCommand(this));
         }
         else
         {
