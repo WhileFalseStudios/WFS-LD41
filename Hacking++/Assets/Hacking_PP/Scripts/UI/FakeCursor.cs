@@ -10,7 +10,12 @@ public class FakeCursor : MonoBehaviour
         Cursor.visible = false;
     }
 
-    private void OnApplicationFocus(bool focus)
+    private void OnEnable()
+    {
+        Cursor.visible = false;
+    }
+
+    private void OnDisable()
     {
         Cursor.visible = false;
     }

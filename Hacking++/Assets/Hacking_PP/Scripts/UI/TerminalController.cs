@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class TerminalController : MonoBehaviour
 {
+    public static TerminalController instance { get; private set; }
+
     const int MAX_BUFFER_COUNT = 1024;
     Queue<string> messages = new Queue<string>();
 
@@ -16,6 +18,14 @@ public class TerminalController : MonoBehaviour
     {
         text = GetComponent<Text>();
         text.text = string.Empty;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("Multiple terminal controllers exist! What the hell.");
+        }
     }
 
     public void Print(string msg)

@@ -4,4 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Hacking_PP/Scenes/Terminal.unity
+    guid: 479e83f4d0805114cbc94c8dd244e900
