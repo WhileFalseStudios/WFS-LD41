@@ -16,7 +16,7 @@ public class Computer
         computerIP = ip;
         if (PlayerStats.instance != null)
         {
-            lockType = Mathf.Clamp(Random.Range(0, PlayerStats.instance.GetHighestLockLevel() + 1), 0, PlayerStats.MAX_LOCK_LEVEL);
+            lockType = Mathf.Clamp(Random.Range(1, PlayerStats.instance.GetHighestLockLevel() + 1), 0, PlayerStats.MAX_LOCK_LEVEL);
 			hackBalance = Random.Range ((lockType - 1 * 10), (lockType * 10));
 			unlockStatus = false;
         }
