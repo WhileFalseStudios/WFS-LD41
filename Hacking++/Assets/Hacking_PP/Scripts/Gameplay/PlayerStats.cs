@@ -33,7 +33,13 @@ public class PlayerStats : MonoBehaviour
             return unlockedItems.Contains(ShopController.ShopItem.CharlieLock);
         }
     }
-    public bool deltaManual { get; set; }
+	public bool deltaManual
+	{
+		get
+		{
+			return unlockedItems.Contains(ShopController.ShopItem.DeltaLock);
+		}
+	}
 
     public List<ShopController.ShopItem> unlockedItems { get; private set; }
 

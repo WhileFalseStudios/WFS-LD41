@@ -39,6 +39,11 @@ public class UnlockCommand : Command {
 			}
 		}
 
+		if (PlayerStats.instance.connectedComputer.isLockedOut == true){
+			Print ("Violator, you have been locked out. Refrain from further attempts to unlock and do not move.");
+			return;
+		}
+
 		//Charlie
 		if (PlayerStats.instance.connectedComputer.lockType == 3) {
 			string s = string.Format ("{0}", PlayerStats.instance.connectedComputer.charliePass);
@@ -48,6 +53,27 @@ public class UnlockCommand : Command {
 			} else {
 				//charlie is an acting script tester
 				Print ("You have given an incorrect parameter. Unauthorised access will lead to punishment.");
+			}
+		}
+		if (PlayerStats.instance.connectedComputer.lockType == 4) {
+			string ss = string.Format ("{0}", PlayerStats.instance.connectedComputer.deltaPass);
+			if (args [0] == ss) {
+				Print ("Your Delta-Protected account has been unlocked.");
+				PlayerStats.instance.connectedComputer.unlockStatus = true;
+			} else {
+				//charlie is an acting script tester
+				Print ("You have given an incorrect parameter. Unauthorised access will lead to punishment.");
+				PlayerStats.instance.connectedComputer.playerTries++;
+				if (PlayerStats.instance.connectedComputer.deltaAttempts - PlayerStats.instance.connectedComputer.playerTries > 0) {
+					string sss = string.Format ("You have {0} attempts remaining before authorities are notified.", PlayerStats.instance.connectedComputer.deltaAttempts - PlayerStats.instance.connectedComputer.playerTries);
+					Print (sss);
+					return;
+				}
+				else{
+					Print("You have been locked out. Authorities have been alerted.");
+					PlayerStats.instance.connectedComputer.isLockedOut = true;
+					return;
+				}
 			}
 		}
 	}

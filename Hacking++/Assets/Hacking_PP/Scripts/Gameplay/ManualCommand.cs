@@ -44,5 +44,16 @@ public class ManualCommand : Command
                 Print("Please purchase the Charlie Lock Manual from the shop.");
             }
         }
+		if (args[0].ToLower() == "delta")
+		{
+			if (PlayerStats.instance.deltaManual == true)
+			{
+				Print ("A bit bitter than its predecessors, the delta lock locks accounts by applying a number between 1 - 99 (inclusive) from the Fibonacci sequence.\nEg, 1, 2, 3, 5, 8... use unlock [number] for this.");
+			}
+			else
+			{
+				Print("Please purchase the Delta Lock Manual from the shop.");
+			}
+		}
     }
 }
