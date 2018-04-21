@@ -9,7 +9,10 @@ public class FeatureController : MonoBehaviour
         HackerManual,
         Wallpaper,
         MouseCursor,
+        SystemClock,
     }
+
+    public static FeatureController instance { get; private set; }
 
     [Header("Feature: Hacker Manual")]
     [SerializeField] private GameObject hackerManual;
@@ -17,12 +20,23 @@ public class FeatureController : MonoBehaviour
     [SerializeField] private GameObject wallpaper;
     [Header("Feature: Mouse Cursor")]
     [SerializeField] private GameObject cursor;
+    [Header("Feature: System Clock")]
+    [SerializeField] private GameObject systemClock;
 
     private void Awake()
     {
-        hackerManual.SetActive(false);
-        wallpaper.SetActive(false);
-        cursor.SetActive(false);
+        if (instance == null)
+        {
+            instance = this;
+            hackerManual.SetActive(false);
+            wallpaper.SetActive(false);
+            cursor.SetActive(false);
+            systemClock.SetActive(false);
+        }
+        else
+        {
+            Debug.LogWarning("Multiple feature controllers exist!");
+        }
     }
 
     public void UnlockFeature(Feature f)
@@ -37,6 +51,9 @@ public class FeatureController : MonoBehaviour
                 break;
             case Feature.MouseCursor:
                 cursor.SetActive(true);
+                break;
+            case Feature.SystemClock:
+                systemClock.SetActive(true);
                 break;
         }
     }

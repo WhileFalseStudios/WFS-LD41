@@ -17,6 +17,8 @@ public class PlayerStats : MonoBehaviour
 	public bool charlieManual { get; set; }
 	public bool deltaManual { get; set; }
 
+    public List<ShopController.ShopItem> unlockedItems { get; private set; }
+
     public List<string> lastGeneratedIPSet { get; set; }
 
     public Computer connectedComputer { get; set; }
@@ -34,6 +36,7 @@ public class PlayerStats : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            unlockedItems = new List<ShopController.ShopItem>();
         }
         else
         {

@@ -9,10 +9,12 @@ public class ShopCommand : Command {
 	{
 		Print ("Listing all avaliable shop items.");
 		Print ("To buy, use buy [index].");
-		Print ("Beta Lock Manual     10cc   - 1");
-		Print ("Charlie Lock Manual  100cc  - 2");
-		Print ("Delta Lock Manual    1000cc - 3");
-		Print ("System Time Module   50cc   - 4");
-		Print ("Manual System Module 300cc  - 5");
+		if (ShopController.instance != null)
+        {
+            foreach (var i in ShopController.instance.itemNameTable)
+            {
+                Print(string.Format("{0}: {1} ({2}cc)", (int)i.Key, i.Value.name, i.Value.cost));
+            }
+        }
 	}
 }

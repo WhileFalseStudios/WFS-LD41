@@ -2,40 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuyCommand : Command {
-	public BuyCommand(CommandInterpreter i) : base(i) { }
+public class BuyCommand : Command
+{
+    public BuyCommand(CommandInterpreter i) : base(i) { }
 
-	public override void Execute(params string[] args)
-	{
-		//error checking
-		if (PlayerStats.instance == null) {
-			Print ("ERROR: PlayerStats is not instanced.");
-			return;
-		} else if (args.Length == 0) {
-			Print ("ERROR: no arguments. Use buy [index number].");
-			return;
-		} else if (args.Length > 1) {
-			Print ("ERROR: too many arguments. Use buy [index number].");
-			return;
-		}
+    public override void Execute(params string[] args)
+    {
+        //error checking
+        if (PlayerStats.instance == null)
+        {
+            Debug.LogWarning("No instance of PlayerStats available.");
+            return;
+        }
+        else if (args.Length == 0)
+        {
+            Error("Please specify an item number.");
+            return;
+        }
 
-		if (args [0] == "1") { //Beta lock
-			if (PlayerStats.instance.bankBalance >= 10) {
-				PlayerStats.instance.RemoveBalance (10);
-				PlayerStats.instance.betaManual = true;
-				Print ("Beta Lock Manual has been purchased. Thank you for your Citizen Credit Contribution.");
-			} else {
-				Print ("You are required to have more citizen credits. Optionally, notifying authorities about anti-social behaviour will give you 100cc.");
-			}
-		}
-		if (args [0] == "2") { //Charlie lock
-			if (PlayerStats.instance.bankBalance >= 100) {
-				PlayerStats.instance.RemoveBalance (100);
-				PlayerStats.instance.charlieManual = true;
-				Print ("Charlie Lock Manual has been purchased. Thank you for your Citizen Credit Contribution.");
-			} else {
-				Print ("You are required to have more citizen credits. Optionally, notifying authorities about anti-social behaviour will give you 100cc.");
-			}
-		}
-	}
+        int v = 0;
+        if (!int.TryParse(args[0], out v))
+        {
+            Error("Please enter a valid item number.");
+        }
+
+        if (ShopController.instance != null)
+        {
+            if (System.Enum.IsDefined(typeof(ShopController.ShopItem), v))
+            {
+                switch (ShopController.instance.BuyItem((ShopController.ShopItem)v))
+                {
+                    case ShopController.BuyCode.OK:
+                        Print("Purchase successful!");
+                        break;
+                    case ShopController.BuyCode.AlreadyOwns:
+                        Print("You already own this!");
+                        break;
+                    case ShopController.BuyCode.TooExpensive:
+                        Print("You cannot afford this!");
+                        break;
+                }
+            }
+            else
+            {
+                Error("Please enter a valid item number.");
+            }
+        }
+    }
 }
