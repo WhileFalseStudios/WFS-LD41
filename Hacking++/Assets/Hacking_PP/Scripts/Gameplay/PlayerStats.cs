@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public const int MAX_LOCK_LEVEL = 3;
+    public const int MAX_LOCK_LEVEL = 4;
 
     public static PlayerStats instance { get; private set; }
 
@@ -23,10 +23,10 @@ public class PlayerStats : MonoBehaviour
 
     public int GetHighestLockLevel()
     {
-        if (deltaManual) return 3;
-        else if (charlieManual) return 2;
-        else if (betaManual) return 1;
-        else return 0;
+        if (deltaManual) return 4;
+        else if (charlieManual) return 3;
+        else if (betaManual) return 2;
+        else return 1;
     }
 
     private void Awake()
