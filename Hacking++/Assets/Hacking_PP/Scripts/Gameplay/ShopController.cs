@@ -11,6 +11,7 @@ public class ShopController : MonoBehaviour
         AlphaLock,
         BetaLock,
         CharlieLock,
+		DeltaLock,
         SystemTime,
         LockManual,
         Wallpaper,
@@ -41,6 +42,7 @@ public class ShopController : MonoBehaviour
 
         itemNameTable.Add(ShopItem.BetaLock, new Item { name = "Beta Lock", cost = 20 });
         itemNameTable.Add(ShopItem.CharlieLock, new Item { name = "Charlie Lock", cost = 150 });
+		itemNameTable.Add(ShopItem.CharlieLock, new Item { name = "Delta Lock", cost = 800 });
         itemNameTable.Add(ShopItem.SystemTime, new Item { name = "System Time", cost = 50 });
         itemNameTable.Add(ShopItem.LockManual, new Item { name = "Lock Manual", cost = 200 });
         itemNameTable.Add(ShopItem.Wallpaper, new Item { name = "Wallpaper", cost = 50 });
