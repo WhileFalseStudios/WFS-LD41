@@ -30,6 +30,7 @@ public class ScanCommand : Command {
 			Print (ii);
 		} else {
 			Print ("A valid IP must be connected to. Use connect [IP].");
+			return;
 		}
 	}
 }
