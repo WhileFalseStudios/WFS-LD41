@@ -48,5 +48,10 @@ public class InputArea : MonoBehaviour
         {
             TerminalController.instance.Print(cmd);
         }
+
+        if (CommandInterpreter.instance != null)
+        {
+            CommandInterpreter.instance.InterpretCommand(cmd);
+        }
     }
 }
