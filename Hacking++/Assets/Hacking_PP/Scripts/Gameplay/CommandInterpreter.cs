@@ -21,6 +21,10 @@ public class CommandInterpreter : MonoBehaviour
 			commands.Add("exit", new ExitCommand(this));
 			commands.Add("man", new ManualCommand(this));
 			commands.Add("buy", new BuyCommand(this));
+            commands.Add("list", new ListIpCommand(this));
+            commands.Add("connect", new ConnectCommand(this));
+            commands.Add("disconnect", new DisconnectCommand(this));
+            commands.Add("target", new TargetCommand(this));
         }
         else
         {

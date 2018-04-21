@@ -7,7 +7,7 @@ public class TerminalController : MonoBehaviour
 {
     public static TerminalController instance { get; private set; }
 
-    const int MAX_BUFFER_COUNT = 1024;
+    const int MAX_BUFFER_COUNT = 35;
     Queue<string> messages = new Queue<string>();
 
     const string errorColour = "#ca861b";
@@ -34,7 +34,7 @@ public class TerminalController : MonoBehaviour
         if (messages.Count > MAX_BUFFER_COUNT)
         {
             string rem = messages.Dequeue();
-            text.text.Remove(0, rem.Length + 1); //+1 because of \n
+            text.text = text.text.Remove(0, rem.Length + 1); //+1 because of \n
         }
 
         text.text += "\n" + msg;
@@ -47,7 +47,7 @@ public class TerminalController : MonoBehaviour
         if (messages.Count > MAX_BUFFER_COUNT)
         {
             string rem = messages.Dequeue();
-            text.text.Remove(0, rem.Length + 1); //+1 because of \n
+            text.text = text.text.Remove(0, rem.Length + 1); //+1 because of \n
         }
 
         text.text += "\n" + msg;
