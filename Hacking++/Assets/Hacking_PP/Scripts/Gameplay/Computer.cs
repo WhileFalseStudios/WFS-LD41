@@ -7,7 +7,9 @@ using UnityEngine;
 public class Computer
 {
     public string computerIP { get; private set; }
-    int lockType;
+    public int lockType;
+	public int hackBalance;
+	public bool unlockStatus;
 
     public Computer(string ip)
     {
@@ -15,6 +17,8 @@ public class Computer
         if (PlayerStats.instance != null)
         {
             lockType = Mathf.Clamp(Random.Range(0, PlayerStats.instance.GetHighestLockLevel() + 1), 0, PlayerStats.MAX_LOCK_LEVEL);
+			hackBalance = Random.Range ((lockType - 1 * 10), (lockType * 10));
+			unlockStatus = false;
         }
 
 #if UNITY_EDITOR

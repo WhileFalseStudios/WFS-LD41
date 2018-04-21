@@ -25,6 +25,9 @@ public class CommandInterpreter : MonoBehaviour
             commands.Add("connect", new ConnectCommand(this));
             commands.Add("disconnect", new DisconnectCommand(this));
             commands.Add("target", new TargetCommand(this));
+            commands.Add("scan", new ScanCommand(this));
+            commands.Add("unlock", new UnlockCommand(this));
+            commands.Add("withdraw", new WithdrawCommand(this));
 #if UNITY_EDITOR
             commands.Add("addmoney", new DebugAddMoneyCommand(this));
 #endif
