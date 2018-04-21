@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using UnityEngine;
+using System;
 
 public class Computer
 {
@@ -16,8 +17,8 @@ public class Computer
         computerIP = ip;
         if (PlayerStats.instance != null)
         {
-            lockType = Mathf.Clamp(Random.Range(1, PlayerStats.instance.GetHighestLockLevel() + 1), 0, PlayerStats.MAX_LOCK_LEVEL);
-			hackBalance = Random.Range ((lockType - 1 * 10), (lockType * 10));
+            lockType = Mathf.Clamp(Random.Range(1, PlayerStats.instance.GetHighestLockLevel() + 2), 0, PlayerStats.MAX_LOCK_LEVEL);
+			hackBalance = Random.Range (Math.Pow(10,lockType-1), Math.Pow(10, lockType)/2);
 			unlockStatus = false;
         }
 
