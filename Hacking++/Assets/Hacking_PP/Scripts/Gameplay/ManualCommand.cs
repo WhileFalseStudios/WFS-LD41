@@ -6,6 +6,11 @@ public class ManualCommand : Command
 {
     public ManualCommand(CommandInterpreter i) : base(i) { }
 
+    public override string GetHelpString()
+    {
+        return "Explains how each lock type works. You need to buy manuals before using this.";
+    }
+
     public override void Execute(params string[] args)
     {
         if (args.Length == 0)
@@ -15,13 +20,13 @@ public class ManualCommand : Command
         }
         if (args[0].ToLower() == "alpha")
         {
-            Print("This lock is an old system, kept in for legacy purposes. Simply use unlock() to unlock them.\nWhile locks typically take parameters, the alpha lock does not require them.");
+            Print("This lock is an old system, kept in for legacy purposes. Simply use unlock to unlock them.\nWhile locks typically take parameters, the alpha lock does not require them.");
         }
         if (args[0].ToLower() == "beta")
         {
             if (PlayerStats.instance.betaManual == true)
             {
-                Print("The rudimentary beta lock has the same password across every system. It is effective against tech-ignorant attackers.\nThe password is simply 'desert' - use unlock(desert) to break it.");
+                Print("The rudimentary beta lock has the same password across every system. It is effective against tech-ignorant attackers.\nThe password is simply 'desert' - use 'unlock desert' to break it.");
             }
             else
             {

@@ -12,10 +12,28 @@ public class PlayerStats : MonoBehaviour
 
 	//Manual Codes - must use buy to unlock
 	//alphaManual automatically one, no checks done. 
-	public bool alphaManual { get; set; }
-	public bool betaManual { get; set; }
-	public bool charlieManual { get; set; }
-	public bool deltaManual { get; set; }
+	public bool alphaManual
+    {
+        get
+        {
+            return unlockedItems.Contains(ShopController.ShopItem.AlphaLock);
+        }
+    }
+	public bool betaManual
+    {
+        get
+        {
+            return unlockedItems.Contains(ShopController.ShopItem.BetaLock);
+        }
+    }
+    public bool charlieManual
+    {
+        get
+        {
+            return unlockedItems.Contains(ShopController.ShopItem.CharlieLock);
+        }
+    }
+    public bool deltaManual { get; set; }
 
     public List<ShopController.ShopItem> unlockedItems { get; private set; }
 
@@ -37,6 +55,7 @@ public class PlayerStats : MonoBehaviour
         {
             instance = this;
             unlockedItems = new List<ShopController.ShopItem>();
+            unlockedItems.Add(ShopController.ShopItem.AlphaLock);
         }
         else
         {
@@ -46,11 +65,25 @@ public class PlayerStats : MonoBehaviour
 
     public void AddBalance(int amount)
     {
-        bankBalance += amount;
+        try
+        {
+            bankBalance += amount;
+        }
+        catch (System.OverflowException)
+        {
+            bankBalance = int.MaxValue;
+        }
     }
 
 	public void RemoveBalance(int amount)
 	{
-		bankBalance -= amount;
+        try
+        {
+            bankBalance -= amount;
+        }
+        catch (System.OverflowException)
+        {
+            bankBalance = int.MinValue;
+        }
 	}
 }

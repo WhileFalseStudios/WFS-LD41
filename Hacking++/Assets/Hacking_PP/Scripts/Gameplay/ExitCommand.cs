@@ -5,7 +5,12 @@ using UnityEngine;
 public class ExitCommand : Command {
 	public ExitCommand(CommandInterpreter i) : base(i) { }
 
-	public override void Execute(params string[] args)
+    public override string GetHelpString()
+    {
+        return "Shut down the computer";
+    }
+
+    public override void Execute(params string[] args)
 	{
 		Application.Quit ();
 	}

@@ -5,7 +5,12 @@ using UnityEngine;
 public class ShopCommand : Command {
 	public ShopCommand(CommandInterpreter i) : base(i) { }
 
-	public override void Execute(params string[] args)
+    public override string GetHelpString()
+    {
+        return "Lists items available for sale.";
+    }
+
+    public override void Execute(params string[] args)
 	{
 		Print ("Listing all avaliable shop items.");
 		Print ("To buy, use buy [index].");

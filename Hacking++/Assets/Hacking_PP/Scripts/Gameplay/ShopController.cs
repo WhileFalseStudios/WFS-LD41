@@ -38,7 +38,6 @@ public class ShopController : MonoBehaviour
     {
         itemNameTable = new Dictionary<ShopItem, Item>();
 
-        itemNameTable.Add(ShopItem.AlphaLock, new Item { name = "Alpha Lock", cost = 10 });
         itemNameTable.Add(ShopItem.BetaLock, new Item { name = "Beta Lock", cost = 100 });
         itemNameTable.Add(ShopItem.CharlieLock, new Item { name = "Charlie Lock", cost = 1000 });
         itemNameTable.Add(ShopItem.SystemTime, new Item { name = "System Time", cost = 30 });

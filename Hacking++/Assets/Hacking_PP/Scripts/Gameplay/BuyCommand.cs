@@ -6,6 +6,11 @@ public class BuyCommand : Command
 {
     public BuyCommand(CommandInterpreter i) : base(i) { }
 
+    public override string GetHelpString()
+    {
+        return "Buy an item from the store.";
+    }
+
     public override void Execute(params string[] args)
     {
         //error checking
@@ -24,6 +29,7 @@ public class BuyCommand : Command
         if (!int.TryParse(args[0], out v))
         {
             Error("Please enter a valid item number.");
+            return;
         }
 
         if (ShopController.instance != null)

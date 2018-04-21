@@ -5,7 +5,12 @@ using UnityEngine;
 public class ScanCommand : Command {
 	public ScanCommand(CommandInterpreter i) : base(i) { }
 
-	public override void Execute(params string[] args)
+    public override string GetHelpString()
+    {
+        return "Evaluates this computer's lock type.";
+    }
+
+    public override void Execute(params string[] args)
 	{
 		if (PlayerStats.instance.connectedComputer != null && PlayerStats.instance != null) {
 			string lockName = string.Empty;

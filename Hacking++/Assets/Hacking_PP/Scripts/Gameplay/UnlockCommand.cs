@@ -5,7 +5,12 @@ using UnityEngine;
 public class UnlockCommand : Command {
 	public UnlockCommand(CommandInterpreter i) : base(i) { }
 
-	public override void Execute(params string[] args)
+    public override string GetHelpString()
+    {
+        return "Unlocks the bank account on this computer";
+    }
+
+    public override void Execute(params string[] args)
 	{
 		if (PlayerStats.instance.connectedComputer == null || PlayerStats.instance == null) {
 			Print ("Connect to a computer using connect [ip].");

@@ -5,7 +5,12 @@ using UnityEngine;
 public class WithdrawCommand : Command {
 	public WithdrawCommand(CommandInterpreter i) : base(i) { }
 
-	public override void Execute(params string[] args)
+    public override string GetHelpString()
+    {
+        return "Transfer money from this account to yours.";
+    }
+
+    public override void Execute(params string[] args)
 	{
 		if (PlayerStats.instance.connectedComputer == null || PlayerStats.instance == null) {
 			Print ("Connect to a computer before you withdraw.");
