@@ -17,14 +17,14 @@ public class ManualCommand : Command {
 			Print ("This lock is an old system, kept in for legacy purposes. Simply use unlock() to unlock them.\nWhile locks typically take parameters, the alpha lock does not require them.");
 		}
 		if (args [0] == "beta") {
-			if (PlayerStats.instance.betaManual == (int)true) {
+			if (PlayerStats.instance.betaManual == true) {
 				Print ("The rudimentary beta lock has the same password across every system. It is effective against tech-ignorant attackers.\nThe password is simply 'desert' - use unlock(desert) to break it.");
 			} else {
 				Print ("Please purchase the Beta Lock Manual from the shop.");
 			}
 		}
 		if (args [0] == "Charlie") {
-			if (PlayerStats.instance.charlieManual == (int)true) {
+			if (PlayerStats.instance.charlieManual == true) {
 				Print ("Placeholder, woo!");
 			} else {
 				Print ("Please purchase the Charlie Lock Manual from the shop.");

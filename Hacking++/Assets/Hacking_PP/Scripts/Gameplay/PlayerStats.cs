@@ -10,10 +10,10 @@ public class PlayerStats : MonoBehaviour
 
 	//Manual Codes - must use buy to unlock
 	//alphaManual automatically one, no checks done. 
-	public bool alphaManual { get; private set; }
-	public bool betaManual { get; private set; }
-	public bool charlieManual { get; private set; }
-	public bool deltaManual { get; private set; }
+	public bool alphaManual { get; set; }
+	public bool betaManual { get; set; }
+	public bool charlieManual { get; set; }
+	public bool deltaManual { get; set; }
 
     private void Awake()
     {
