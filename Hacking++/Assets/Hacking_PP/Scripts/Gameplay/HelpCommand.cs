@@ -7,15 +7,17 @@ public class HelpCommand : Command
 {
     public HelpCommand(CommandInterpreter i) : base(i) { }
 
+    public override string GetHelpString()
+    {
+        return "Lists all commands available in the system.";
+    }
+
     public override void Execute(params string[] args)
     {
-        if (args.Length > 0)
+        Print("Listing all available commands:");
+        foreach (var cmd in interpreter.commandTable)
         {
-            Print(string.Format("Help for command {0}:", args[0]));
-        }
-        else
-        {
-            Error("Please specify a command you want help for."); //TODO: no, just print them all!
+            Print(string.Format("{0}: {1}", cmd.Key, cmd.Value.GetHelpString()));
         }
     }
 }

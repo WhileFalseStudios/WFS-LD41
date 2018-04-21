@@ -8,6 +8,7 @@ public class CommandInterpreter : MonoBehaviour
     public static CommandInterpreter instance { get; private set; }
 
     Dictionary<string, Command> commands = new Dictionary<string, Command>();
+    public Dictionary<string, Command> commandTable {get { return commands; } }
 
     private void Awake()
     {       
@@ -15,6 +16,7 @@ public class CommandInterpreter : MonoBehaviour
         {
             instance = this;
             commands.Add("help", new HelpCommand(this));
+            commands.Add("balance", new BalanceCommand(this));
         }
         else
         {

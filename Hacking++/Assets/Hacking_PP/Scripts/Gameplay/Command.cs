@@ -15,6 +15,11 @@ public class Command
 
     public virtual void Execute(params string[] args) { }
 
+    public virtual string GetHelpString()
+    {
+        return "Default help string.";
+    }
+
     protected void Print(string msg)
     {
         if (TerminalController.instance != null)
