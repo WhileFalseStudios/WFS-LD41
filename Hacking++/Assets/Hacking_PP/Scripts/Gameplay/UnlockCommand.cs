@@ -38,5 +38,17 @@ public class UnlockCommand : Command {
 				Print ("Wrong Password, please attempt again.");
 			}
 		}
+
+		//Charlie
+		if (PlayerStats.instance.connectedComputer.lockType == 3) {
+			string s = string.Format ("{0}", PlayerStats.instance.connectedComputer.charliePass);
+			if (args [0] == s) {
+				Print ("Your Charlie-Protected account has been unlocked.");
+				PlayerStats.instance.connectedComputer.unlockStatus = true;
+			} else {
+				//charlie is an acting script tester
+				Print ("You have given an incorrect parameter. Unauthorised access will lead to punishment.");
+			}
+		}
 	}
 }

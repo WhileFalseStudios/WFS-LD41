@@ -37,7 +37,7 @@ public class ManualCommand : Command
         {
             if (PlayerStats.instance.charlieManual == true)
             {
-                Print("Placeholder, woo!");
+				Print("A terrible option if you want to secure something, this lock takes in a number from 0 to 9 (inclusive) as a password.\nYou will need to brute force (or script) to make this tedious lock less tedious.\nEg, ‘unlock 2’ or ‘unlock 4’.");
             }
             else
             {

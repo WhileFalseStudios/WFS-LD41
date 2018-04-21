@@ -11,6 +11,9 @@ public class Computer
 	public int hackBalance;
 	public bool unlockStatus;
 
+	//lock passwords
+	public int charliePass;
+
     public Computer(string ip)
     {
         computerIP = ip;
@@ -19,6 +22,11 @@ public class Computer
             lockType = Mathf.Clamp(Random.Range(1, PlayerStats.instance.GetHighestLockLevel() + 2), 0, PlayerStats.MAX_LOCK_LEVEL);
 			hackBalance = Mathf.RoundToInt(Random.Range ((float)System.Math.Pow(10,lockType-1), (float)(System.Math.Pow (10, lockType) / 2)));
 			unlockStatus = false;
+
+			if (lockType == 3) {
+				//0 - 9 randomised
+				charliePass = Random.Range (0, 10);
+			}
         }
 
 #if UNITY_EDITOR
