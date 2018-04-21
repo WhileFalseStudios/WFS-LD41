@@ -38,6 +38,15 @@ public class CommandInterpreter : MonoBehaviour
         }
     }
 
+    public void AddNewCommand<T>(string name) where T : Command
+    {
+        if (!commands.ContainsKey(name))
+        {
+            T cmd = (T)System.Activator.CreateInstance(typeof(T), new object[] { this });
+            commands.Add(name, cmd);
+        }
+    }
+
     public void InterpretCommand(string inputString)
     {
         string commandName = string.Empty;

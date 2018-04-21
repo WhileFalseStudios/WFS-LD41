@@ -39,6 +39,8 @@ public class PlayerStats : MonoBehaviour
 
     public List<string> lastGeneratedIPSet { get; set; }
 
+    public Dictionary<string, AutoScript> userScripts { get; private set; }
+
     public Computer connectedComputer { get; set; }
 
     public int GetHighestLockLevel()
@@ -55,6 +57,7 @@ public class PlayerStats : MonoBehaviour
         {
             instance = this;
             unlockedItems = new List<ShopController.ShopItem>();
+            userScripts = new Dictionary<string, AutoScript>();
             unlockedItems.Add(ShopController.ShopItem.AlphaLock);
         }
         else

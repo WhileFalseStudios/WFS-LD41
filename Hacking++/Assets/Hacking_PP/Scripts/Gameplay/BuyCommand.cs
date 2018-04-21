@@ -46,7 +46,7 @@ public class BuyCommand : Command
                         break;
                     case ShopController.BuyCode.TooExpensive:
                         Print("You cannot afford this!");
-                        break;
+                        break;                    
                 }
             }
             else

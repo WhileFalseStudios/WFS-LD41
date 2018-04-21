@@ -15,6 +15,7 @@ public class ShopController : MonoBehaviour
         LockManual,
         Wallpaper,
         Cursor,
+        Scripting,
     }
 
     public enum BuyCode
@@ -44,6 +45,7 @@ public class ShopController : MonoBehaviour
         itemNameTable.Add(ShopItem.LockManual, new Item { name = "Lock Manual", cost = 200 });
         itemNameTable.Add(ShopItem.Wallpaper, new Item { name = "Wallpaper", cost = 50 });
         itemNameTable.Add(ShopItem.Cursor, new Item { name = "Mouse Cursor", cost = 50 });
+        itemNameTable.Add(ShopItem.Scripting, new Item { name = "Scripting Engine", cost = 400 });
 
         if (instance == null)
         {
@@ -63,7 +65,7 @@ public class ShopController : MonoBehaviour
             {
                 if (PlayerStats.instance.unlockedItems.Contains(item)) return BuyCode.AlreadyOwns;
 
-                if (PlayerStats.instance.bankBalance - itemNameTable[item].cost > 0)
+                if (PlayerStats.instance.bankBalance - itemNameTable[item].cost >= 0)
                 {
                     PlayerStats.instance.RemoveBalance(itemNameTable[item].cost);
                     PlayerStats.instance.unlockedItems.Add(item);
@@ -82,9 +84,14 @@ public class ShopController : MonoBehaviour
                                 break;
                             case ShopItem.Cursor:
                                 FeatureController.instance.UnlockFeature(FeatureController.Feature.MouseCursor);
-                                break;
+                                break;                            
                         }
                     }
+                    if (CommandInterpreter.instance != null && item == ShopItem.Scripting)
+                    {
+                        CommandInterpreter.instance.AddNewCommand<ScriptCommand>("script");
+                    }
+
                     return BuyCode.OK;
                 }
             }
