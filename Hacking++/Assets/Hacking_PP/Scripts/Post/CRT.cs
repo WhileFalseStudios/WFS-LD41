@@ -24,7 +24,7 @@ public class CRT : MonoBehaviour
             crtMat.SetFloat("_Coefficient", coefficient);
             if (overlay != null)
             {
-                crtMat.SetTexture("_Overlay", overlay);
+                crtMat.SetTexture("_ScreenOverlay", overlay);
             }
         }
     }

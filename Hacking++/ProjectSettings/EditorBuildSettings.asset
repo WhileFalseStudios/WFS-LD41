@@ -6,5 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Splash/Scenes/WhileFalse.unity
+    guid: ae95fb5015cf88a44a1bd8f9aba3c33d
+  - enabled: 1
     path: Assets/Hacking_PP/Scenes/Terminal.unity
     guid: 479e83f4d0805114cbc94c8dd244e900

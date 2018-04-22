@@ -12,7 +12,7 @@ public class UnlockCommand : Command {
 
     public override void Execute(params string[] args)
 	{
-		if (PlayerStats.instance.connectedComputer == null || PlayerStats.instance == null) {
+		if (PlayerStats.instance == null || PlayerStats.instance.connectedComputer == null) {
 			Print ("Connect to a computer using connect [ip].");
 			return;
 		}
@@ -80,7 +80,7 @@ public class UnlockCommand : Command {
 		if (PlayerStats.instance.connectedComputer.lockType == 5) {
 			string pass1 = string.Format ("{0}", PlayerStats.instance.connectedComputer.echoPassOne);
 			string pass2 = string.Format ("{0}", PlayerStats.instance.connectedComputer.echoPassTwo);
-			if (args [0] == pass1 && args[1] == pass2) {
+			if (args [0] == pass1 && args.Length > 1 && args[1] == pass2) {
 				Print ("Your Echo-Protected account has been unlocked.");
 				Print ("You win the game.");
 				PlayerStats.instance.connectedComputer.unlockStatus = true;

@@ -22,8 +22,6 @@ public class Computer
 	//lock tries
 	public int deltaAttempts = 6;
 
-	public string s;
-
     public Computer(string ip)
     {
         computerIP = ip;
@@ -38,7 +36,6 @@ public class Computer
 				maximumLock = PlayerStats.MAX_LOCK_LEVEL;
 			}
 			lockType = Random.Range(minimumLock, maximumLock+1);
-			s = string.Format("{0}, {1}", minimumLock, maximumLock+1);
 			if (lockType == 0) {
 				lockType = 1;
 			}

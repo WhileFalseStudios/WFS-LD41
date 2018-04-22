@@ -12,9 +12,6 @@ public class ScanCommand : Command {
 
     public override void Execute(params string[] args)
 	{
-		//DEBUG
-		Print(PlayerStats.instance.connectedComputer.s);
-
 		if (PlayerStats.instance.connectedComputer != null && PlayerStats.instance != null) {
 			string lockName = string.Empty;
 			switch (PlayerStats.instance.connectedComputer.lockType) {

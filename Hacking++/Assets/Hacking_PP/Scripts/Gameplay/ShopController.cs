@@ -44,7 +44,7 @@ public class ShopController : MonoBehaviour
         itemNameTable = new Dictionary<ShopItem, Item>();
 
         itemNameTable.Add(ShopItem.BetaLock, new Item { name = "Beta Lock", cost = 20 });
-        itemNameTable.Add(ShopItem.CharlieLock, new Item { name = "Charlie Lock", cost = 150 });
+        itemNameTable.Add(ShopItem.CharlieLock, new Item { name = "Charlie Lock", cost = 75 });
 		itemNameTable.Add(ShopItem.DeltaLock, new Item { name = "Delta Lock", cost = 800 });
 		itemNameTable.Add(ShopItem.EchoLock, new Item { name = "Echo Lock", cost = 3000 });
         itemNameTable.Add(ShopItem.SystemTime, new Item { name = "System Time", cost = 50 });
@@ -52,7 +52,7 @@ public class ShopController : MonoBehaviour
         itemNameTable.Add(ShopItem.Wallpaper, new Item { name = "Wallpaper", cost = 50 });
         itemNameTable.Add(ShopItem.Cursor, new Item { name = "Mouse Cursor", cost = 50 });
         itemNameTable.Add(ShopItem.Scripting, new Item { name = "Scripting Engine", cost = 400 });
-        itemNameTable.Add(ShopItem.BetterMusic, new Item { name = "Better National Anthem", cost = 20000000 });
+        itemNameTable.Add(ShopItem.BetterMusic, new Item { name = "Better National Anthem", cost = 2000000 });
 
         if (instance == null)
         {
