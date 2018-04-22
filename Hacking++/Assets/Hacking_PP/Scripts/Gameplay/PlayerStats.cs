@@ -41,6 +41,23 @@ public class PlayerStats : MonoBehaviour
 		}
 	}
 
+    public bool GetHasLockLevel(int lockLevel)
+    {
+        switch (lockLevel)
+        {
+            case 0:
+                return alphaManual;
+            case 1:
+                return betaManual;
+            case 2:
+                return charlieManual;
+            case 3:
+                return deltaManual;
+            default:
+                return false;
+        }
+    }
+
     public List<ShopController.ShopItem> unlockedItems { get; private set; }
 
     public List<string> lastGeneratedIPSet { get; set; }

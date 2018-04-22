@@ -5,7 +5,12 @@ using System.Text;
 
 public class ScriptCommand : Command
 {
-    public ScriptCommand(CommandInterpreter i) : base(i) { }
+    public ScriptCommand(CommandInterpreter i) : base(i)
+    {
+        Print("Congratulations! You have purchased the ConquerorSoft Script Engine 6.1!");
+        Print("You can run this with 'script [subcommand] [file]'");
+        Print("For information on subcommands, run 'script' without any parameters.");
+    }
 
     public override string GetHelpString()
     {

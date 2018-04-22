@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 224851250316566422}
   - component: {fileID: 222412713232174318}
   - component: {fileID: 114830478083677450}
+  - component: {fileID: 114817001585682848}
   m_Layer: 5
   m_Name: Hacking Manual
   m_TagString: Untagged
@@ -420,6 +421,21 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
+--- !u!114 &114817001585682848
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1339681194844486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7950937fac2099469e8143f6c87ffd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBody: {fileID: 114924757029663752}
+  textHeader: {fileID: 114372081445134810}
+  nextButton: {fileID: 114060678621722754}
+  previousButton: {fileID: 114496688179674624}
 --- !u!114 &114830478083677450
 MonoBehaviour:
   m_ObjectHideFlags: 1

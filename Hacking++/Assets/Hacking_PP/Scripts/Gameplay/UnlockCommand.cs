@@ -23,7 +23,7 @@ public class UnlockCommand : Command {
 		}
 
 		//Alpha
-		if (PlayerStats.instance.connectedComputer.lockType == 1 && args.Length == 0) {
+		if (PlayerStats.instance.connectedComputer.lockType == 1) {
 			Print ("Your Alpha-Protected account has been unlocked.");
 			PlayerStats.instance.connectedComputer.unlockStatus = true;
 		}

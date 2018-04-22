@@ -6,6 +6,40 @@ public class ManualCommand : Command
 {
     public ManualCommand(CommandInterpreter i) : base(i) { }
 
+    public static string GetLockManualDescription(int lockLevel)
+    {
+        switch (lockLevel)
+        {
+            case 0:
+                return "This lock is an old system, kept in for legacy purposes. Simply use unlock to unlock them.\nWhile locks typically take parameters, the alpha lock does not require them.";
+            case 1:
+                return "The rudimentary beta lock has the same password across every system. It is effective against tech-ignorant attackers.\nThe password is simply 'desert' - use 'unlock desert' to break it.";
+            case 2:
+                return "A terrible option if you want to secure something, this lock takes in a number from 0 to 9 (inclusive) as a password.\nYou will need to brute force (or script) to make this tedious lock less tedious.\nEg, ‘unlock 2’ or ‘unlock 4’.";
+            case 3:
+                return "A bit better than its predecessors, the delta lock locks accounts by applying a number between 1 - 99 (inclusive) from the Fibonacci sequence.\nEg, 1, 2, 3, 5, 8... use unlock [number] for this.";
+            default:
+                return "You've done something insane, this isn't a real lock type.";
+        }
+    }
+
+    public static string GetLockManualTitle(int lockLevel)
+    {
+        switch (lockLevel)
+        {
+            case 0:
+                return "Alpha Lock";
+            case 1:
+                return "Beta Lock";
+            case 2:
+                return "Charlie Lock";
+            case 3:
+                return "Delta Lock";
+            default:
+                return "Not a real lock!";
+        }
+    }
+
     public override string GetHelpString()
     {
         return "Explains how each lock type works. You need to buy manuals before using this.";
@@ -20,13 +54,13 @@ public class ManualCommand : Command
         }
         if (args[0].ToLower() == "alpha")
         {
-            Print("This lock is an old system, kept in for legacy purposes. Simply use unlock to unlock them.\nWhile locks typically take parameters, the alpha lock does not require them.");
+            Print(GetLockManualDescription(0));
         }
         if (args[0].ToLower() == "beta")
         {
             if (PlayerStats.instance.betaManual == true)
             {
-                Print("The rudimentary beta lock has the same password across every system. It is effective against tech-ignorant attackers.\nThe password is simply 'desert' - use 'unlock desert' to break it.");
+                Print(GetLockManualDescription(1));
             }
             else
             {
@@ -37,7 +71,7 @@ public class ManualCommand : Command
         {
             if (PlayerStats.instance.charlieManual == true)
             {
-				Print("A terrible option if you want to secure something, this lock takes in a number from 0 to 9 (inclusive) as a password.\nYou will need to brute force (or script) to make this tedious lock less tedious.\nEg, ‘unlock 2’ or ‘unlock 4’.");
+				Print(GetLockManualDescription(2));
             }
             else
             {
@@ -48,7 +82,7 @@ public class ManualCommand : Command
 		{
 			if (PlayerStats.instance.deltaManual == true)
 			{
-				Print ("A bit bitter than its predecessors, the delta lock locks accounts by applying a number between 1 - 99 (inclusive) from the Fibonacci sequence.\nEg, 1, 2, 3, 5, 8... use unlock [number] for this.");
+				Print (GetLockManualDescription(3));
 			}
 			else
 			{

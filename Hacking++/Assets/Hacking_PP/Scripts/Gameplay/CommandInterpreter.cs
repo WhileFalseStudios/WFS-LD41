@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ public class CommandInterpreter : MonoBehaviour
     {       
         if (instance == null)
         {
-            instance = this;
+            instance = this;            
             commands.Add("help", new HelpCommand(this));
             commands.Add("balance", new BalanceCommand(this));
 			commands.Add("shop", new ShopCommand(this));
@@ -28,6 +29,7 @@ public class CommandInterpreter : MonoBehaviour
             commands.Add("scan", new ScanCommand(this));
             commands.Add("unlock", new UnlockCommand(this));
             commands.Add("withdraw", new WithdrawCommand(this));
+            commands.Add("clear", new ClearCommand(this));
 #if UNITY_EDITOR
             commands.Add("addmoney", new DebugAddMoneyCommand(this));
 #endif

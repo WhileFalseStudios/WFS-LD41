@@ -7,7 +7,7 @@ public class TerminalController : MonoBehaviour
 {
     public static TerminalController instance { get; private set; }
 
-    const int MAX_BUFFER_COUNT = 35;
+    public const int MAX_BUFFER_COUNT = 35;
     Queue<string> messages = new Queue<string>();
 
     const string errorColour = "#ca861b";
