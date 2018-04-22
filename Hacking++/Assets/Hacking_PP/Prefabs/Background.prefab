@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 224295318137508146}
   - component: {fileID: 222354140428845982}
   - component: {fileID: 114224241401740730}
+  - component: {fileID: 114875041448685172}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -55,6 +56,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114875041448685172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1189399904625072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0447ca8272bf0274b88902017f474c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  communismBackground: {fileID: 21300000, guid: a0ea23f645bd6d94db21c985d2f520c9,
+    type: 3}
 --- !u!222 &222354140428845982
 CanvasRenderer:
   m_ObjectHideFlags: 1

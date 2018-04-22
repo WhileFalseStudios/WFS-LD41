@@ -57,9 +57,19 @@ public class CommandInterpreter : MonoBehaviour
             {
                 var script = PlayerStats.instance.userScripts[scriptName];
                 var lines = script.code.Split('\n');
-                foreach (var line in lines)
+                try
                 {
-                    InterpretCommand(line);
+                    foreach (var line in lines)
+                    {
+                        InterpretCommand(line);
+                    }
+                }
+                catch (System.StackOverflowException)
+                {
+                    if (TerminalController.instance != null)
+                    {
+                        TerminalController.instance.Error("Infinite loop detected in script. Aborting...");
+                    }
                 }
             }
         }

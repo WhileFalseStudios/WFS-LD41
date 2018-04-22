@@ -11,6 +11,7 @@ public class FeatureController : MonoBehaviour
         MouseCursor,
         SystemClock,
         ScriptEditor,
+        BetterMusic,
     }
 
     public static FeatureController instance { get; private set; }
@@ -26,6 +27,9 @@ public class FeatureController : MonoBehaviour
     [SerializeField] private GameObject systemClock;
     [Header("Feature: Script Editor")]
     [SerializeField] private GameObject scriptEditor;
+    [Header("Feature: Better Music")]
+    [SerializeField] private AudioSource betterMusicPlayer;
+    [SerializeField] private Wallpaper communism;
 
     private void Awake()
     {
@@ -52,8 +56,8 @@ public class FeatureController : MonoBehaviour
                 hackerManual.SetActive(true);
                 break;
             case Feature.Wallpaper:
-                wallpaper.SetActive(true);
-                fascistThemePlayer.Play();
+                wallpaper.SetActive(true);                
+                if (!betterMusicPlayer.isPlaying) fascistThemePlayer.Play();
                 break;
             case Feature.MouseCursor:
                 cursor.SetActive(true);
@@ -63,6 +67,12 @@ public class FeatureController : MonoBehaviour
                 break;
             case Feature.ScriptEditor:
                 scriptEditor.SetActive(true);
+                break;
+            case Feature.BetterMusic:
+                fascistThemePlayer.Stop();
+                betterMusicPlayer.PlayDelayed(1.0f);
+                communism.Revolt();
+                wallpaper.SetActive(true);
                 break;
         }
     }

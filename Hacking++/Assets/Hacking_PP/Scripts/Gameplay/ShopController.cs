@@ -18,6 +18,7 @@ public class ShopController : MonoBehaviour
         Wallpaper,
         Cursor,
         Scripting,
+        BetterMusic,
     }
 
     public enum BuyCode
@@ -25,6 +26,7 @@ public class ShopController : MonoBehaviour
         OK,
         TooExpensive,
         AlreadyOwns,
+        YouWin,
     }
 
     public struct Item
@@ -50,6 +52,7 @@ public class ShopController : MonoBehaviour
         itemNameTable.Add(ShopItem.Wallpaper, new Item { name = "Wallpaper", cost = 50 });
         itemNameTable.Add(ShopItem.Cursor, new Item { name = "Mouse Cursor", cost = 50 });
         itemNameTable.Add(ShopItem.Scripting, new Item { name = "Scripting Engine", cost = 400 });
+        itemNameTable.Add(ShopItem.BetterMusic, new Item { name = "Better National Anthem", cost = 20000000 });
 
         if (instance == null)
         {
@@ -88,7 +91,10 @@ public class ShopController : MonoBehaviour
                                 break;
                             case ShopItem.Cursor:
                                 FeatureController.instance.UnlockFeature(FeatureController.Feature.MouseCursor);
-                                break;                            
+                                break;
+                            case ShopItem.BetterMusic:
+                                FeatureController.instance.UnlockFeature(FeatureController.Feature.BetterMusic);
+                                return BuyCode.YouWin;
                         }
                     }
                     if (CommandInterpreter.instance != null && item == ShopItem.Scripting)
