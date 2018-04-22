@@ -55,13 +55,13 @@ public class UnlockCommand : Command {
 				Print ("You have given an incorrect parameter. Unauthorised access will lead to punishment.");
 			}
 		}
+		//delta
 		if (PlayerStats.instance.connectedComputer.lockType == 4) {
 			string ss = string.Format ("{0}", PlayerStats.instance.connectedComputer.deltaPass);
 			if (args [0] == ss) {
 				Print ("Your Delta-Protected account has been unlocked.");
 				PlayerStats.instance.connectedComputer.unlockStatus = true;
 			} else {
-				//charlie is an acting script tester
 				Print ("You have given an incorrect parameter. Unauthorised access will lead to punishment.");
 				PlayerStats.instance.connectedComputer.playerTries++;
 				if (PlayerStats.instance.connectedComputer.deltaAttempts - PlayerStats.instance.connectedComputer.playerTries > 0) {
@@ -74,6 +74,18 @@ public class UnlockCommand : Command {
 					PlayerStats.instance.connectedComputer.isLockedOut = true;
 					return;
 				}
+			}
+		}
+		//echo
+		if (PlayerStats.instance.connectedComputer.lockType == 5) {
+			string pass1 = string.Format ("{0}", PlayerStats.instance.connectedComputer.echoPassOne);
+			string pass2 = string.Format ("{0}", PlayerStats.instance.connectedComputer.echoPassTwo);
+			if (args [0] == pass1 && args[1] == pass2) {
+				Print ("Your Echo-Protected account has been unlocked.");
+				Print ("You win the game.");
+				PlayerStats.instance.connectedComputer.unlockStatus = true;
+			} else {
+				Print ("Echo is infinitely secure - you will be unable to breach this, intruder.");
 			}
 		}
 	}

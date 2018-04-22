@@ -18,7 +18,9 @@ public class ManualCommand : Command
                 return "A terrible option if you want to secure something, this lock takes in a number from 0 to 9 (inclusive) as a password.\nYou will need to brute force (or script) to make this tedious lock less tedious.\nEg, ‘unlock 2’ or ‘unlock 4’.";
             case 3:
                 return "A bit better than its predecessors, the delta lock locks accounts by applying a number between 1 - 99 (inclusive) from the Fibonacci sequence.\nEg, 1, 2, 3, 5, 8... use unlock [number] for this.";
-            default:
+			case 4:
+				return "The first lock that cannot be easily brute forced.\nThe echo lock combines the charlie and delta systems system to increase combinations.\nThe first argument should be a number from 0 to 9 (inclusive) and the second argument is a number from the Fibonacci sequence.\nEg, 'unlock 4 81'";
+			default:
                 return "You've done something insane, this isn't a real lock type.";
         }
     }
@@ -35,6 +37,8 @@ public class ManualCommand : Command
                 return "Charlie Lock";
             case 3:
                 return "Delta Lock";
+			case 4:
+				return "Echo Lock";
             default:
                 return "Not a real lock!";
         }
@@ -87,6 +91,17 @@ public class ManualCommand : Command
 			else
 			{
 				Print("Please purchase the Delta Lock Manual from the shop.");
+			}
+		}
+		if (args[0].ToLower() == "echo")
+		{
+			if (PlayerStats.instance.deltaManual == true)
+			{
+				Print (GetLockManualDescription(4));
+			}
+			else
+			{
+				Print("Please purchase the Echo Lock Manual from the shop.");
 			}
 		}
     }

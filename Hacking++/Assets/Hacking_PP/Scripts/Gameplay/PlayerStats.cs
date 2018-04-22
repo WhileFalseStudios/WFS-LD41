@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public const int MAX_LOCK_LEVEL = 4;
+    public const int MAX_LOCK_LEVEL = 5;
 
     public static PlayerStats instance { get; private set; }
 
     public int bankBalance { get; private set; }
+
+	//Stores the previous lock generated to prevent too many dupes.
+	public int previousLockType = 0;
 
 	//Manual Codes - must use buy to unlock
 	//alphaManual automatically one, no checks done. 
@@ -40,6 +43,13 @@ public class PlayerStats : MonoBehaviour
 			return unlockedItems.Contains(ShopController.ShopItem.DeltaLock);
 		}
 	}
+	public bool echoManual
+	{
+		get
+		{
+			return unlockedItems.Contains(ShopController.ShopItem.EchoLock);
+		}
+	}
 
     public bool GetHasLockLevel(int lockLevel)
     {
@@ -53,6 +63,8 @@ public class PlayerStats : MonoBehaviour
                 return charlieManual;
             case 3:
                 return deltaManual;
+			case 4:
+				return echoManual;
             default:
                 return false;
         }
@@ -68,6 +80,7 @@ public class PlayerStats : MonoBehaviour
 
     public int GetHighestLockLevel()
     {
+		if (echoManual) return 5;
         if (deltaManual) return 4;
         else if (charlieManual) return 3;
         else if (betaManual) return 2;
