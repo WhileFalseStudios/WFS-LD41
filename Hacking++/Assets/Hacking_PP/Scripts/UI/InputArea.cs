@@ -28,6 +28,7 @@ public class InputArea : MonoBehaviour
             {
                 switch (c)
                 {
+                    case '\n':
                     case '\r': //Enter
                         RunCommand();
                         break;
