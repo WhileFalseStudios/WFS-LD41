@@ -16,6 +16,8 @@ public class Computer
 	//lock passwords
 	public int charliePass;
 	public int deltaPass;
+	public int echoPassOne;
+	public int echoPassTwo;
 
 	//lock tries
 	public int deltaAttempts = 6;
@@ -25,11 +27,21 @@ public class Computer
         computerIP = ip;
         if (PlayerStats.instance != null)
         {
-            lockType = Mathf.Clamp(Random.Range(1, PlayerStats.instance.GetHighestLockLevel() + 2), 0, PlayerStats.MAX_LOCK_LEVEL);
+			int minimumLock = 1;
+			if (PlayerStats.instance.GetHighestLockLevel () > 1) {
+				minimumLock = PlayerStats.instance.GetHighestLockLevel () - 1;
+			}
+			lockType = Mathf.Clamp(Random.Range(minimumLock, PlayerStats.instance.GetHighestLockLevel() + 2), 0, PlayerStats.MAX_LOCK_LEVEL);
 			hackBalance = Mathf.RoundToInt(Random.Range ((float)System.Math.Pow(10,lockType-1), (float)(System.Math.Pow (10, lockType) / 2)));
 			unlockStatus = false;
 			isLockedOut = false;
 			playerTries = 0;
+
+			//stores lock type to make sure no uber high level dupes.
+			PlayerStats.instance.previousLockType = lockType;
+			if (lockType == PlayerStats.instance.previousLockType && lockType == PlayerStats.instance.GetHighestLockLevel ()) {
+				lockType--;
+			}
 
 			if (lockType == 3) {
 				//0 - 9 randomised
@@ -41,6 +53,13 @@ public class Computer
 				//0 - 9 array
 				deltaPass = Random.Range(0, 10);
 				deltaPass = fibonacci [deltaPass];
+			}
+			if (lockType == 5) {
+				//0 - 99 fibonacci number
+				int[] fibonacci = new [] {1,2,3,5,8,13,21,34,55,89};
+				//0 - 9 array
+				echoPassOne = Random.Range(0, 10);
+				echoPassTwo = fibonacci [echoPassOne];
 			}
         }
 
