@@ -34,10 +34,15 @@ public class LockManual : MonoBehaviour
 
         if (PlayerStats.instance != null)
         {
+            textHeader.text = ManualCommand.GetLockManualTitle(currentLock);
+
             if (PlayerStats.instance.GetHasLockLevel(currentLock))
-            {
-                textHeader.text = ManualCommand.GetLockManualTitle(currentLock);
+            {                
                 textBody.text = ManualCommand.GetLockManualDescription(currentLock);
+            }
+            else
+            {
+                textBody.text = "You do not own this manual. Please purchase it in order to view.";
             }
         }
     }

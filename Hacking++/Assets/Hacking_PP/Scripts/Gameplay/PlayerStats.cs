@@ -78,6 +78,8 @@ public class PlayerStats : MonoBehaviour
 
     public Computer connectedComputer { get; set; }
 
+    public bool isInEditor { get; set; }
+
     public int GetHighestLockLevel()
     {
 		if (echoManual) return 5;
