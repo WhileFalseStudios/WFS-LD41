@@ -31,7 +31,11 @@ public class Computer
 			if (PlayerStats.instance.GetHighestLockLevel () > 1) {
 				minimumLock = PlayerStats.instance.GetHighestLockLevel () - 1;
 			}
-			lockType = Mathf.Clamp(Random.Range(minimumLock, PlayerStats.instance.GetHighestLockLevel() + 2), 1, PlayerStats.MAX_LOCK_LEVEL);
+			int maximumLock = PlayerStats.instance.GetHighestLockLevel () + 2;
+			if (maximumLock > PlayerStats.MAX_LOCK_LEVEL){
+				maximumLock = PlayerStats.MAX_LOCK_LEVEL;
+			}
+			lockType = Random.Range(minimumLock, maximumLock);
 			hackBalance = Mathf.RoundToInt(Random.Range ((float)System.Math.Pow(10,lockType-1), (float)(System.Math.Pow (10, lockType) / 2)));
 			unlockStatus = false;
 			isLockedOut = false;
