@@ -36,7 +36,7 @@ public class CommandInterpreter : MonoBehaviour
 #endif
             if (TerminalController.instance != null)
             {
-                TerminalController.instance.Print("Welcome! Type 'tutorial 1' for an explanation of what to do!");
+                TerminalController.instance.Print("Welcome! Type 'tutorial' for an explanation of what to do!");
             }
         }
         else
