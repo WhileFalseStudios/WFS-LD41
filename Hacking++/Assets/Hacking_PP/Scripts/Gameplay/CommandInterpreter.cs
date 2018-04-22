@@ -30,6 +30,7 @@ public class CommandInterpreter : MonoBehaviour
             commands.Add("unlock", new UnlockCommand(this));
             commands.Add("withdraw", new WithdrawCommand(this));
             commands.Add("clear", new ClearCommand(this));
+			commands.Add ("tutorial", new TutorialCommand (this));
 #if UNITY_EDITOR
             commands.Add("addmoney", new DebugAddMoneyCommand(this));
 #endif
