@@ -449,6 +449,148 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224851250316566422, guid: 1825f66ae0877ec449ac916deed0ab23,
     type: 2}
   m_PrefabInternal: {fileID: 123254749}
+--- !u!1 &1268109124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1268109126}
+  - component: {fileID: 1268109125}
+  - component: {fileID: 1268109127}
+  m_Layer: 0
+  m_Name: '[Keyboard Clicks]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1268109125
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1268109124}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!4 &1268109126
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1268109124}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1268109127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1268109124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 389efd8fb0dc5d54985e4b1da03f297c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalKeyboardSounds:
+  - {fileID: 8300000, guid: 9680d87203a5c2e4a9caa0885a83c6a5, type: 3}
+  - {fileID: 8300000, guid: b5c30a1b0000ef34ea8a4c6eb6422e4c, type: 3}
+  - {fileID: 8300000, guid: 18986f855d939a3428a107d26fffd517, type: 3}
+  - {fileID: 8300000, guid: 342972cae244b884d8f9ad7f9dec6e59, type: 3}
+  - {fileID: 8300000, guid: c7fbab8e024534c45a489a1abc420f80, type: 3}
+  - {fileID: 8300000, guid: 815e59bf8f043cf40866f9979376bf0d, type: 3}
+  - {fileID: 8300000, guid: a85bef151063daa4e9b2b22c6192157d, type: 3}
+  spacebarKeyboardSounds:
+  - {fileID: 8300000, guid: 1ea00275befe2ea4c91e2b44ea4dc7e3, type: 3}
+  - {fileID: 8300000, guid: 701de4e91436c814fbf93f2ae0e5d655, type: 3}
+  - {fileID: 8300000, guid: 5f937fd2168e1c1489f7aaa3c4b6bd91, type: 3}
+  - {fileID: 8300000, guid: 427bef10a2d1d2c488b05cb516a1ce9f, type: 3}
+  bigKeyKeyboardSounds:
+  - {fileID: 8300000, guid: fd0c80240642bae4681a66ee87b7dfd3, type: 3}
+  - {fileID: 8300000, guid: bba5c8ee23de67a4cb81ecbc396b1ef9, type: 3}
+  - {fileID: 8300000, guid: 0daecd992bc355e4cafff8358d7bd425, type: 3}
+  - {fileID: 8300000, guid: 5bd21f1791d05ff46a2a66c4a47f2c4e, type: 3}
+  - {fileID: 8300000, guid: fc8e3c2a7d9b9694c9058e5563b44ec3, type: 3}
+  - {fileID: 8300000, guid: c01859e29d47d1e49a86ff71f0b2f47d, type: 3}
+  - {fileID: 8300000, guid: 3ab513147ee5f204d805bd31a57401b1, type: 3}
 --- !u!1001 &1365924040
 Prefab:
   m_ObjectHideFlags: 0
