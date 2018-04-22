@@ -37,7 +37,7 @@ public class Computer
 			}
 			lockType = Random.Range(minimumLock, maximumLock);
 			if (lockType == maximumLock && lockType != PlayerStats.instance.GetHighestLockLevel()){
-				if (Random.Range(0, 4)){
+				if (Random.Range(0, 4) == 0){
 					lockType++;
 				}
 			}
