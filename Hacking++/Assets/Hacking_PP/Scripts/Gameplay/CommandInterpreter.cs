@@ -34,6 +34,10 @@ public class CommandInterpreter : MonoBehaviour
 #if UNITY_EDITOR
             commands.Add("addmoney", new DebugAddMoneyCommand(this));
 #endif
+            if (TerminalController.instance != null)
+            {
+                TerminalController.instance.Print("Welcome! Type 'tutorial' for an explanation of what to do!");
+            }
         }
         else
         {
