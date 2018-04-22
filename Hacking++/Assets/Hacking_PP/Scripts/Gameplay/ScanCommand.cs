@@ -12,6 +12,9 @@ public class ScanCommand : Command {
 
     public override void Execute(params string[] args)
 	{
+		//DEBUG
+		Print(PlayerStats.instance.connectedComputer.s);
+
 		if (PlayerStats.instance.connectedComputer != null && PlayerStats.instance != null) {
 			string lockName = string.Empty;
 			switch (PlayerStats.instance.connectedComputer.lockType) {
@@ -26,6 +29,9 @@ public class ScanCommand : Command {
 				break;
 			case 4:
 				lockName = "Delta";
+				break;
+			case 5:
+				lockName = "Echo";
 				break;
 			}
 

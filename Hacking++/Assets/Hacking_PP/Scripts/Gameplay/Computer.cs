@@ -7,7 +7,7 @@ using UnityEngine;
 public class Computer
 {
     public string computerIP { get; private set; }
-    public int lockType;
+    public int lockType = 1;
 	public int hackBalance;
 	public bool unlockStatus;
 	public int playerTries;
@@ -22,20 +22,26 @@ public class Computer
 	//lock tries
 	public int deltaAttempts = 6;
 
+	public string s;
+
     public Computer(string ip)
     {
         computerIP = ip;
         if (PlayerStats.instance != null)
         {
 			int minimumLock = 1;
-			if (PlayerStats.instance.GetHighestLockLevel () > 1) {
+			if (PlayerStats.instance.GetHighestLockLevel () > 2) {
 				minimumLock = PlayerStats.instance.GetHighestLockLevel () - 1;
 			}
-			int maximumLock = PlayerStats.instance.GetHighestLockLevel () + 2;
+			int maximumLock = PlayerStats.instance.GetHighestLockLevel () + 1;
 			if (maximumLock > PlayerStats.MAX_LOCK_LEVEL){
 				maximumLock = PlayerStats.MAX_LOCK_LEVEL;
 			}
-			lockType = Random.Range(minimumLock, maximumLock);
+			lockType = Random.Range(minimumLock, maximumLock+1);
+			s = string.Format("{0}, {1}", minimumLock, maximumLock+1);
+			if (lockType == 0) {
+				lockType = 1;
+			}
 			hackBalance = Mathf.RoundToInt(Random.Range ((float)System.Math.Pow(10,lockType-1), (float)(System.Math.Pow (10, lockType) / 2)));
 			unlockStatus = false;
 			isLockedOut = false;
@@ -43,9 +49,13 @@ public class Computer
 
 			//stores lock type to make sure no uber high level dupes.
 			PlayerStats.instance.previousLockType = lockType;
-			if (lockType == PlayerStats.instance.previousLockType && lockType == PlayerStats.instance.GetHighestLockLevel ()) {
-				lockType--;
-			}
+			/*if (lockType == PlayerStats.instance.previousLockType && lockType == PlayerStats.instance.GetHighestLockLevel ()) {
+				if (lockType == 1) {
+					lockType++;
+				} else {
+					lockType--;
+				}
+			}*/
 
 			if (lockType == 3) {
 				//0 - 9 randomised
