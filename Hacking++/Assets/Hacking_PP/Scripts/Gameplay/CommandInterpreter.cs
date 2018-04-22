@@ -50,6 +50,22 @@ public class CommandInterpreter : MonoBehaviour
         }
     }
 
+    public void RunScript(string scriptName)
+    {
+        if (PlayerStats.instance != null)
+        {
+            if (PlayerStats.instance.userScripts.ContainsKey(scriptName))
+            {
+                var script = PlayerStats.instance.userScripts[scriptName];
+                var lines = script.code.Split('\n');
+                foreach (var line in lines)
+                {
+                    InterpretCommand(line);
+                }
+            }
+        }
+    }
+
     public void InterpretCommand(string inputString)
     {
         string commandName = string.Empty;
@@ -68,6 +84,8 @@ public class CommandInterpreter : MonoBehaviour
 
             if (char.IsWhiteSpace(c) && !isInQuotedString)
             {
+                if (sb.Length == 0) continue;
+
                 if (item == 0)
                 {
                     commandName = sb.ToString();

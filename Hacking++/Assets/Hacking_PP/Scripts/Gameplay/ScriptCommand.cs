@@ -59,21 +59,70 @@ public class ScriptCommand : Command
 
     void ExecuteScript(string file)
     {
-
+        if (PlayerStats.instance != null)
+        {
+            if (PlayerStats.instance.userScripts.ContainsKey(file.ToLower()))
+            {
+                Print(string.Format("Executing {0}...", file));
+                interpreter.RunScript(file.ToLower());
+            }
+            else
+            {
+                Error("The given script does not exist.");
+            }
+        }
     }
 
     void NewScript(string file)
     {
-
+        if (PlayerStats.instance != null)
+        {
+            if (PlayerStats.instance.userScripts.ContainsKey(file.ToLower()))
+            {
+                Error(string.Format("A script named {0} already exists.", file));                
+            }
+            else
+            {
+                PlayerStats.instance.userScripts.Add(file.ToLower(), new AutoScript(file));
+                Print(string.Format("Created script named {0}", file));
+            }
+        }
     }
 
     void DeleteScript(string file)
     {
-
+        if (PlayerStats.instance != null)
+        {
+            if (!PlayerStats.instance.userScripts.ContainsKey(file.ToLower()))
+            {
+                Error("The given script does not exist.");
+            }
+            else
+            {
+                PlayerStats.instance.userScripts.Remove(file.ToLower());
+                Print(string.Format("Deleted script {0}", file));
+            }
+        }
     }
 
     void EditScript(string file)
     {
-
+        if (PlayerStats.instance != null && ScriptEditor.instance != null)
+        {
+            if (!PlayerStats.instance.userScripts.ContainsKey(file.ToLower()))
+            {
+                Error("The given script does not exist.");
+            }
+            else
+            {
+                var script = PlayerStats.instance.userScripts[file.ToLower()];
+                ScriptEditor.instance.Show();
+                ScriptEditor.instance.SetScript(script);
+            }
+        }
+        else
+        {
+            UnityEngine.Debug.LogError("Script editor is null. Most likely it is not having Awake() called.");
+        }
     }
 }
