@@ -20,7 +20,7 @@ public class Computer
 	public int echoPassTwo;
 
 	//lock tries
-	public int deltaAttempts = 6;
+	public int deltaAttempts = 10;
 
     public Computer(string ip)
     {
