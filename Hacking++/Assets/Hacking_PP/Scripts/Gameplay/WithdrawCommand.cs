@@ -17,7 +17,7 @@ public class WithdrawCommand : Command {
 			return;
 		}
 
-		if (PlayerStats.instance.connectedComputer.unlockStatus == true) {
+        if (PlayerStats.instance.connectedComputer.unlockStatus == true && !PlayerStats.instance.connectedComputer.isLockedOut) {
 			PlayerStats.instance.AddBalance (PlayerStats.instance.connectedComputer.hackBalance);
 			//security so the player can't infinitely withdraw. god that'd be bad design
 			string i = string.Format ("Successful withdrawal of {0}cc. Your spending is monitored, citizen.", PlayerStats.instance.connectedComputer.hackBalance);

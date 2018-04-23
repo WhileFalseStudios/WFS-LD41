@@ -27,7 +27,7 @@ public class TutorialCommand : Command
             }
             else if (v == 3)
             {
-                Print("If the lock is Alpha, the instructions to unlock it is in the manual - 'man alpha'.\nAlpha lock manual is automatically unlocked by default, but you will need to buy other lock manuals in the shop.\nIf it is beta, 'disconnect' and reconnect again.\nType 'tutorial 4' to continue.");
+                Print("If the lock is Alpha, the instructions to unlock it is in the manual - 'man alpha'.\nAlpha lock manual is automatically unlocked by default, but you will need to buy other lock manuals in the shop.\nIf it is beta, 'disconnect' and reconnect again.\nIt is currently too high level for you to unlock.\nType 'tutorial 4' to continue.");
             }
             else if (v == 4)
             {

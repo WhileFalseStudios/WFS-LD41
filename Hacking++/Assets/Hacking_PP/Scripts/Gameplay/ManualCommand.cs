@@ -11,7 +11,7 @@ public class ManualCommand : Command
         switch (lockLevel)
         {
             case 0:
-                return "This lock is an old system, kept in for legacy purposes. Simply use unlock to unlock them.\nWhile locks typically take parameters, the alpha lock does not require them.";
+                return "This lock is an old system, kept in for legacy purposes. Simply use 'unlock' to unlock them.\nWhile locks typically take parameters, the alpha lock does not require them.";
             case 1:
                 return "The rudimentary beta lock has the same password across every system. It is effective against tech-ignorant attackers.\nThe password is simply 'desert' - use 'unlock desert' to break it.";
             case 2:
