@@ -8,7 +8,7 @@ public class BuyCommand : Command
 
     public override string GetHelpString()
     {
-        return "Buy an item from the store.";
+        return "Buys an item from the government store.";
     }
 
     public override void Execute(params string[] args)
