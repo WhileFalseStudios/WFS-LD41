@@ -58,6 +58,11 @@ public class UnlockCommand : Command {
 		//delta
 		if (PlayerStats.instance.connectedComputer.lockType == 4) {
 			string ss = string.Format ("{0}", PlayerStats.instance.connectedComputer.deltaPass);
+            if (PlayerStats.instance.connectedComputer.unlockStatus)
+            {
+                Print("Your account is already unlocked.");
+                return;
+            }
 			if (args [0] == ss) {
 				Print ("Your Delta-Protected account has been unlocked.");
 				PlayerStats.instance.connectedComputer.unlockStatus = true;
