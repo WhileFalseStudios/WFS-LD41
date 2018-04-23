@@ -27,7 +27,7 @@ public class LockManual : MonoBehaviour
 
     void SetManual()
     {        
-        if (currentLock == PlayerStats.MAX_LOCK_LEVEL) nextButton.interactable = false;
+        if (currentLock == PlayerStats.MAX_LOCK_LEVEL - 1) nextButton.interactable = false;
         else nextButton.interactable = true;
         if (currentLock == 0) previousButton.interactable = false;
         else previousButton.interactable = true;
@@ -49,13 +49,13 @@ public class LockManual : MonoBehaviour
 
     public void NextManual()
     {
-        currentLock = Mathf.Clamp(currentLock + 1, 0, PlayerStats.MAX_LOCK_LEVEL);
+        currentLock = Mathf.Clamp(currentLock + 1, 0, PlayerStats.MAX_LOCK_LEVEL - 1);
         SetManual();
     }
 
     public void PrevManual()
     {
-        currentLock = Mathf.Clamp(currentLock - 1, 0, PlayerStats.MAX_LOCK_LEVEL);
+        currentLock = Mathf.Clamp(currentLock - 1, 0, PlayerStats.MAX_LOCK_LEVEL - 1);
         SetManual();
     }
 }
